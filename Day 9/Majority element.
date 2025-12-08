@@ -1,3 +1,6 @@
+// Solved using Boyer-Moore Majority vote algorithm
+// Time complexity: O(n)
+
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
