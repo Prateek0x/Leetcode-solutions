@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        vector<int>arr;
+        for(int i=0;i<nums.size();i++){
+            int k=0;
+            for(int j=0;j<nums.size();j++){
+                if(nums[i]==nums[j] && j!=i){
+                    arr.push_back(nums[i]);
+                    k=1;
+                    break;
+
+                }
+
+            }
+            if(k==1){
+                break;
+            }
+
+
+
+        }
+        for(int i=1;i<=nums.size();i++){
+            int  k=0;
+            for(int j=0;j<nums.size();j++){
+                if(nums[j]==i){
+                    k=1;
+                }
+            }
+            if(k!=1){
+                arr.push_back(i);
+            }
+        }
+        return arr;
+
+
+    }
+};
