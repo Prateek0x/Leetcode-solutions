@@ -7,7 +7,10 @@ primary DSA topics covered.
 
 ## Day 01
 - **Reverse String**  
-  Topic: String, Two Pointers  
+  Topic: String, Two Pointers
+  
+- **Fibonacci Number**
+  Topic: Dynamic Programming 
 
 ---
 
@@ -67,7 +70,10 @@ primary DSA topics covered.
 
 ## Day 11
 - **Ransom Note**  
-  Topic: String, Hash Map  
+  Topic: String, Hash Map
+
+- **Climbing Stair**
+  Topic: Dynamic Programming
 
 ---
 
