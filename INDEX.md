@@ -121,9 +121,13 @@ primary DSA topics covered.
 
 ## Day 19
 - **Sort Colors**  
-  Topic: Array, Dutch National Flag Algorithm  
+  Topic: Array, Dutch National Flag Algorithm
 
 ---
+
+## Day 20
+- **Squares of a Sorted array**
+  Topic: Two pointers,Arrays
 
 ### 🎯 Goal
 - Maintain daily consistency  
