@@ -129,6 +129,47 @@ primary DSA topics covered.
 - **Squares of a Sorted array**
   Topic: Two pointers,Arrays
 
+  ---
+
+  ## Day 21
+### K Closest Points to Origin
+**Topics Used:**
+- Heap (Priority Queue)
+- Sorting
+- Euclidean Distance
+- Greedy
+
+---
+
+## Day 22
+### Top K Frequent Elements
+**Topics Used:**
+- Hash Map
+- Heap (Priority Queue)
+- Bucket Sort
+
+---
+
+## Day 23
+### Third Maximum Number
+**Topics Used:**
+- Array
+- Sorting
+- Set
+- Math / Comparison Logic
+
+---
+
+## Day 24
+### Sort List
+**Topics Used:**
+- Linked List
+- Merge Sort
+- Recursion
+- Two Pointers
+
+  
+
 ### 🎯 Goal
 - Maintain daily consistency  
 - Cover core DSA topics  
