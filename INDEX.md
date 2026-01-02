@@ -168,6 +168,43 @@ primary DSA topics covered.
 - Recursion
 - Two Pointers
 
+## Day 25
+- **Find the Kth Largest Integer in an Array**  
+  Method: Sorting / Min-Heap
+
+## Day 26
+- **Query Kth Smallest Trimmed Number**  
+  Method: String Trimming + Sorting (Index Mapping)
+
+## Day 27
+- **Intersection of Two Arrays II**  
+  Method: Hash Map Frequency Counting  
+  (Alternative: Sorting + Two Pointers)
+
+## Day 28
+- **Kth Largest Element in a Stream**  
+  Method: Min-Heap (Priority Queue)
+
+## Day 29
+- **Remove Duplicates from Sorted Array**  
+  Method: Two Pointers (In-place)
+
+## Day 30
+- **Merge Sorted Array**  
+  Method: Two Pointers (From End)
+
+## Day 31
+- **Max Consecutive Ones**  
+  Method: Linear Scan / Sliding Window
+
+## Day 32
+- **Sort the People**  
+  Method: Sorting with Pairing (Index-Based Sort)
+
+## Day 33
+- **Height Checker**  
+  Method: Sorting + Comparison
+
   
 
 ### 🎯 Goal
