@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int minimumPairRemoval(vector<int>& nums) {
+        
+
+        int ops = 0;
+
+        while(nums.size()>1) {
+            bool asc = true;
+            int mini = INT_MAX;
+            int pos = -1;
+            for(int i = 0; i<nums.size()-1; i++) {
+                int sum = nums[i]+nums[i+1];
+                if(nums[i]>nums[i+1]) asc = false;
+                if(mini > sum) {
+                    mini = sum;
+                    pos = i;
+                }
+            }
+
+            if(asc) break;
+
+            ops++;
+            nums[pos] = mini;
+            nums.erase(nums.begin()+pos+1);
+        }
+
+        return ops;
+    }
+};
