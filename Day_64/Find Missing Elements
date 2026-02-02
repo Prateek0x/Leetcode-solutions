@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> findMissingElements(vector<int>& nums) {
+        std::vector<bool> arr(100, false);
+        int min = INT_MAX;
+        int max = INT_MIN;
+        for (const auto& num : nums)
+        {
+            arr[num] = true;
+            min = std::min(min, num);
+            max = std::max(max, num);
+        }
+        std::vector<int> missingElements;
+        missingElements.reserve(max - min);
+        int iter = 0;
+        for (int num = min; num <= max; ++num)
+        {
+            if (!arr[num])
+            {
+                missingElements.emplace_back(num);
+            }
+        }
+        return missingElements;
+    }
+};
