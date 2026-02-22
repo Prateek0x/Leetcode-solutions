@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> findEvenNumbers(vector<int>& digits) {
+        int i,j,k;
+        vector<int> retv;
+        for (i=0;i<digits.size();i++)
+        for (j=0;j<digits.size();j++)
+        for (k=0;k<digits.size();k++) {
+            if (i == j) continue;
+            if (j == k) continue;
+            if (i == k) continue;
+            int num = digits[i] * 100 +  digits[j] * 10 +  digits[k];
+            if (((num%2) == 0) && (num >= 100)) { /* even-number and 3-digit */
+                if (find(retv.begin(), retv.end(), num) == retv.end()) { /* not registered */
+                    retv.push_back(num);
+                }
+            }
+        }
+        sort(retv.begin(), retv.end());
+        return retv;
+    }
+};
