@@ -1,0 +1,18 @@
+int low = 0,high = nums.size()-1;
+Ans = INT_MAX;
+while(nums[low] <= nums[high])
+int mid = (low + high)/2;
+if(nums[low] <= nums[high]){
+ans = MIN(ans,nums[low])
+break;
+}
+if(nums[low] <= nums[mid]){
+ans = MIN(ans,nums[low])
+low = mid + 1;
+}
+else {
+ans = MIN(ans,nums[mid])
+high = mid - 1;
+}
+return ans;
+};
