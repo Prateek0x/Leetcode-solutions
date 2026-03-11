@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        if(intervals.size() < 2)
+            return intervals;
+        
+        vector<vector<int>> ans;
+
+        sort(intervals.begin(), intervals.end());
+        vector<int> current = intervals[0];
+        for(int i = 1; i < intervals.size(); i++)
+        {
+            int nextStart = intervals[i][0];
+            int nextEnd = intervals[i][1];
+
+            if(nextStart <= current[1]) //  if true, then 2 sub array can group
+            {
+                current[1] = max(nextEnd, current[1]);      //  compare two end, and take the bigger
+            }
+            else
+            {
+                ans.push_back(current);
+                current = intervals[i];
+            }
+        }
+        ans.push_back(current);
+        return ans;
+    }
+};

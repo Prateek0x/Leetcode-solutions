@@ -1,0 +1,24 @@
+class Solution {
+public:
+    double get_distance(int x1, int y1, int x2, int y2) {
+        return pow((x1 - x2)*(x1-x2) + (y1-y2)*(y1-y2), 0.5);
+    }
+
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        vector<vector<int>> ans;
+
+        priority_queue<pair<double, vector<int>>, vector<pair<double, vector<int>>>, greater<pair<double, vector<int>>>> pq;
+
+        for(auto pt : points) {
+            double dist = get_distance(0, 0, pt[0], pt[1]);
+            pq.push({dist, pt});
+        }
+
+        while(k--) {
+            ans.push_back(pq.top().second);
+            pq.pop();
+        }
+
+        return ans;
+    }
+};

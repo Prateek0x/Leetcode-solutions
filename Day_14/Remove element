@@ -1,0 +1,6 @@
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {    
+        return std::partition(nums.begin(), nums.end(), [&](const int& t){ return t != val; }) - nums.begin();
+    }
+};

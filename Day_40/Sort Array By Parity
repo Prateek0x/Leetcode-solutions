@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+
+        // vector<int> result;
+        // for (auto val : nums) {
+        //     if (val % 2 == 0)
+        //         result.insert(result.begin(), val);
+        //     if (val % 2 != 0)
+        //         result.push_back(val);
+        // }
+
+        int left = 0;
+        int right = nums.size() - 1;
+
+        while (left < right) {
+            if (left < right && nums[left] % 2 == 0) {
+                left++;
+            }
+            if (left < right && nums[right] % 2 != 0) {
+                right--;
+            }
+            if (left < right) {
+                swap(nums[left], nums[right]);
+            }
+        }
+        // return result;
+        return nums;
+    }
+};

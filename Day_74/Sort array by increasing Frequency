@@ -1,0 +1,28 @@
+class Solution {
+public:
+    static bool cmp(pair<int,int>&a,pair<int,int>&b)
+    {
+        if(a.first==b.first) return a.second>b.second;
+        else return a.first<b.first;
+    }
+    vector<int> frequencySort(vector<int>& nums) 
+    {
+        map<int,int>mp;
+        for(int i=0;i<nums.size();i++)
+        {
+            mp[nums[i]]++;
+        }
+        vector<pair<int,int>>v;
+        for(auto a:mp)
+        {
+            v.push_back({a.second,a.first});
+        }
+        sort(v.begin(),v.end(),cmp);
+        vector<int>ans;
+        for(int i=0;i<v.size();i++)
+        {
+            while(v[i].first--) ans.push_back(v[i].second);
+        }
+        return ans;
+    }
+};

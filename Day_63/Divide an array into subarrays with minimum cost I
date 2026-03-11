@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int minimumCost(vector<int>&arr)
+    {
+        int sum=arr[0],p=arr[1],q=arr[2];
+        for(int k=3;k<arr.size();++k)
+        {
+            if(arr[k]<p || arr[k]<q)
+            {
+                if(p>q) p=arr[k]; 
+                else  q=arr[k]; 
+            }
+        }
+        return sum+p+q;
+    }
+};

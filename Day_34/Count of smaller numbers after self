@@ -1,0 +1,34 @@
+class Solution {
+public:
+    # define pp_iter vector<vector<int>> ::iterator
+    void merge_count(pp_iter l, pp_iter r, vector<int>& count )
+    {
+        if(r - l <= 1) return;
+        pp_iter n = l + (r-l)/2;
+        merge_count(l,n,count);
+        merge_count(n,r,count);
+
+        pp_iter i = l;
+        pp_iter j = n;
+        for(i = l; i<n; i++)
+        {
+            while(j<r and (*i)[0] > (*j)[0])
+            {
+                j++;
+            }
+            count[(*i)[1]] += j - n;
+        }
+
+        std::inplace_merge(l,n,r);
+    }
+    vector<int> countSmaller(vector<int>& nums) {
+        vector<vector<int>> temp;
+        for(int i = 0; i < nums.size(); i++)
+        {
+            temp.push_back({nums[i],i});
+        }
+        vector<int> count (nums.size(),0);
+        merge_count(temp.begin(),temp.end(),count);
+        return count;
+    }  
+};
