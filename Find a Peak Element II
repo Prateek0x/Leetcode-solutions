@@ -1,0 +1,52 @@
+class Solution {
+public:
+
+   int find_maxelement_index (vector<vector<int>>& mat , int mid ){
+
+    int n= mat.size();
+    int max_elemnet=INT_MIN;
+    int ans=-1;
+
+    for(int i=0;i<n;i++){
+        if(mat[i][mid]>max_elemnet){
+            max_elemnet=mat[i][mid];
+            ans=i;
+        }
+    }
+    return ans;
+
+   }
+    vector<int> findPeakGrid(vector<vector<int>>& mat) {
+        int rows = mat.size();
+        int cols = mat[0].size();
+
+       int low=0;
+       int high=cols-1;
+
+       while(low<=high){
+        int mid= low + (high-low)/2;
+
+        int max_element_index = find_maxelement_index(mat,mid); // max_element_index,mid
+
+
+        int left= (mid-1 >=0) ? mat[max_element_index ][mid-1] : -1; // left element
+        int right=(mid+1 < cols) ? mat[max_element_index ][mid+1]:-1; // right elemet
+         
+         if(mat[max_element_index][mid]> left  && mat[max_element_index][mid]> right ){
+            return {max_element_index,mid};
+         }
+         else if(mat[max_element_index][mid]< left){
+            high=mid-1;
+         }
+         else{
+            low=mid+1;
+         }
+
+       }
+
+       return {-1,-1};
+
+
+        
+    }
+};
