@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        int p = s.length();
+        int n = goal.length();
+
+        if(p != n){
+            return false;
+        }
+        for(int cnt = 1; cnt<=p; cnt++){
+            rotate(begin(s),begin(s)+1,end(s));
+
+            if(s == goal)
+            return true;
+        }
+        return false;
+    }
+};
