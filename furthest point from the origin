@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int furthestDistanceFromOrigin(string moves) {
+        int origin = 0;
+        int space=0;
+        for(char c : moves){
+            if(c=='L') origin--;
+            else if (c=='R') origin++;
+            else if(c=='_') space++;
+        }
+        if(origin < 0) return abs(origin-space);
+        else return origin + space;
+    }
+};
