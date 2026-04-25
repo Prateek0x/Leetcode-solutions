@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int compareBitonicSums(vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> asc(n), dsc(n);
+        asc[0] = nums[0];
+        for(int i = 1; i <n; i++){
+            if(nums[i] > nums[i-1])
+                asc[i] = asc[i - 1] + nums[i];
+            else
+                asc[i] = nums[i];
+        }
+        dsc[n - 1] = nums[n - 1];
+        for(int i = n-2; i >= 0; i--){
+            if(nums[i] > nums[i + 1])
+                dsc[i] = dsc[i + 1] + nums[i];
+            else
+                dsc[i] = nums[i];
+        }
+         long long best = 0;
+    int peak = 0;
+
+    for(int i = 0; i < n; i++){
+        long long total = asc[i] + dsc[i] - nums[i];
+        if(total > best){
+            best = total;
+            peak = i;
+        }
+    }
+
+    
+    long long leftSum = asc[peak];
+    long long rightSum = dsc[peak];
+
+    if(leftSum > rightSum) return 0;
+    if(leftSum < rightSum) return 1;
+    return -1;
+}
+};©leetcode
