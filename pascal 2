@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<vector<int>> triangle;
+        int sum;
+        int n = rowIndex;
+
+        for (int i = 0; i < n + 1; i++) {
+            vector<int> row;
+            for (int j = 0; j < i + 1; j++) {
+                if (j == 0 || j == i) {
+                    row.push_back(1);
+                } else {
+                    sum = triangle[i - 1][j - 1] + triangle[i - 1][j];
+                    row.push_back(sum);
+                }
+            }
+            triangle.push_back(row);
+        }
+        return triangle[rowIndex];
+    }
+};
