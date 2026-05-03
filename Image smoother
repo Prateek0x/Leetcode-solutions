@@ -1,0 +1,47 @@
+class Solution {
+    
+    // if cell exist return its values otherwise -1.
+    int getValueOfCell(vector<vector<int>>& img, int i, int j, int n, int m) {
+        if(i<0 || j<0 || i>=n || j>=m) {
+            return -1;
+        }
+        return img[i][j];
+    }
+
+    //Find Average of each cell
+    int getAverageOfCell(vector<vector<int>>& img, int row, int cell, int n, int m) {
+        int cntOfValidCell = 0, Sum=0; // contain count and sum of calculating average.
+
+        // Iterate over each neighbour of cell and find its value.
+        for(int i=-1;i<=1;i++) {
+            for(int j=-1;j<=1;j++) {
+                int searchRow = row+i, searchCell = cell+j;
+                int val = getValueOfCell(img,searchRow,searchCell,n,m);
+                if(val!=-1){
+                    Sum+=val;
+                    cntOfValidCell++;
+                }
+            }
+        }
+
+        return Sum/cntOfValidCell; // return average
+    }
+
+public:
+    vector<vector<int>> imageSmoother(vector<vector<int>>& img) {
+
+        int n=img.size();      //Row Size
+        int m=img[0].size();  //Column Size
+        vector<vector<int>> ans(n);
+
+        for(int i=0;i<n;i++) {
+            for(int j=0;j<m;j++) {
+                int val = getAverageOfCell(img, i, j, n, m); //Find Average of each cell
+                ans[i].push_back(val);
+            }
+        }
+
+        return ans;
+        
+    }
+};
