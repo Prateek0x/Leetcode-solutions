@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string convert(string s, int numRows) {
+    if (numRows == 1 || numRows >= s.size()) return s;      // if row is one then the answer will be same
+
+        int n = s.size();      // szee of string 
+  
+     vector<string> store(numRows);   // store row wise 
+     bool down = true;           // going downward ---> yes for now  
+     int cr = 0;       // current row 
+
+     for(char c : s){
+      store[cr] += c;                 // store it rows wise 
+
+      if(cr == 0) down = true;         // cuz it always start from zero then go to numRows - 1 
+      else if(cr == numRows - 1) down = false;        // now it will not go downward
+
+      cr += down ? 1 : -1; 
+     }
+        // make a string for answer 
+
+        string ans; 
+ 
+      for(auto& x : store) ans += x; 
+
+      return ans;      
+    }
+};
