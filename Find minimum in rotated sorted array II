@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int s = 0;
+        int e = nums.size() - 1;
+
+        while (s < e) {
+            int mid = s + (e - s) / 2;
+
+            // minimum lies in right part
+            if (nums[mid] > nums[e]) {
+                s = mid + 1;
+            }
+            // minimum lies in left part including mid
+            else if (nums[mid] < nums[e]) {
+                e = mid;
+            }
+            // duplicates case
+            else {
+                e--;
+            }
+        }
+        return nums[s];
+    }
+};
