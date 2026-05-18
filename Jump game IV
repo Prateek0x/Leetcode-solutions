@@ -1,0 +1,80 @@
+class Solution {
+public:
+    int minJumps(vector<int>& arr) {
+
+        int n = arr.size();
+
+        if(n == 1) {
+            return 0;
+        }
+
+        unordered_map<int, vector<int>> mp;
+
+        // same value indices store
+        for(int i = 0; i < n; i++) {
+
+            mp[arr[i]].push_back(i);
+        }
+
+        queue<int> q;
+
+        vector<bool> vis(n, false);
+
+        q.push(0);
+
+        vis[0] = true;
+
+        int jumps = 0;
+
+        while(!q.empty()) {
+
+            int size = q.size();
+
+            while(size--) {
+
+                int curr = q.front();
+
+                q.pop();
+
+                // reached end
+                if(curr == n - 1) {
+                    return jumps;
+                }
+
+                // right jump
+                if(curr + 1 < n && !vis[curr + 1]) {
+
+                    vis[curr + 1] = true;
+
+                    q.push(curr + 1);
+                }
+
+                // left jump
+                if(curr - 1 >= 0 && !vis[curr - 1]) {
+
+                    vis[curr - 1] = true;
+
+                    q.push(curr - 1);
+                }
+
+                // same value jumps
+                for(int next : mp[arr[curr]]) {
+
+                    if(!vis[next]) {
+
+                        vis[next] = true;
+
+                        q.push(next);
+                    }
+                }
+
+                // clear to avoid repeated traversal
+                mp[arr[curr]].clear();
+            }
+
+            jumps++;
+        }
+
+        return -1;
+    }
+};
