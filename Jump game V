@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int helper(int i,int d,vector<int>& arr,vector<int>& dp){
+        if(dp[i]!=-1) return dp[i];
+
+        int n=arr.size();
+        int res = 1;
+
+        for(int x=1;x<=d;x++){
+            if(i-x<0 || arr[i]<=arr[i-x]) break;
+            res=max(res, 1+helper(i-x, d, arr, dp));
+        }
+
+        for(int x=1;x<=d;x++){
+            if(i+x>=n || arr[i]<=arr[i+x]) break;
+            res=max(res, 1+helper(i+x, d, arr, dp));
+        }
+
+        return dp[i] = res;
+    }
+
+    int maxJumps(vector<int>& arr, int d) {
+        int n = arr.size();
+        vector<int> dp(n, -1);
+
+        for(int i=0;i<n;i++){
+            if(dp[i]==-1) helper(i, d, arr, dp);
+        }
+
+        return *max_element(dp.begin(), dp.end());
+    }
+};
