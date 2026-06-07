@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<string> ans;
+
+    void solve(string s, int n, int k, int cost) {
+        if (s.size() == n) {
+            ans.push_back(s);
+            return;
+        }
+
+        solve(s + '0', n, k, cost);
+
+        int idx = s.size();
+        if ((s.empty() || s.back() != '1') && cost + idx <= k) {
+            solve(s + '1', n, k, cost + idx);
+        }
+    }
+
+    vector<string> generateValidStrings(int n, int k) {
+        solve("", n, k, 0);
+        return ans;
+    }
+};
