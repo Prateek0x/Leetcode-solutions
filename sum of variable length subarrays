@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int subarraySum(vector<int>& nums) {
+        int sum=0;
+        vector<int>prefixSum(1,0);
+        for(int i=0; i<nums.size(); i++){
+            sum+=nums[i];
+            prefixSum.push_back(sum);
+        }
+        sum=0;
+        for(int i=1; i<nums.size()+1; i++){
+            int start=max(0,(i-1)-nums[(i-1)]);
+            sum+=prefixSum[i]-prefixSum[start];
+        }
+        return sum;
+    }
+};
