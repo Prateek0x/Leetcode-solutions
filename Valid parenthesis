@@ -1,0 +1,26 @@
+#include <stack>
+#include <unordered_map>
+class Solution {
+public:
+    bool isValid(string s) {
+        unordered_map<char,char>pairing;
+        pairing['{']='}';
+        pairing['(']=')';
+        pairing['[']=']';
+        stack<char> st;
+        for (int i=0;i<s.length();i++){
+            if (pairing.count(s[i])) {st.push(s[i]);}
+            if (!pairing.count(s[i])){
+                if (!st.empty()){
+                char top_char=st.top();
+                if (s[i]==pairing[top_char]){st.pop();}
+                else {return false;}}
+                else{
+                    return false;
+                }
+            }
+        }
+      if (!st.empty()){return false;}
+      return true;
+}
+};
