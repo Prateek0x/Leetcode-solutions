@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int digitFrequencyScore(int n) {
+        int rem = 0;
+        map<int, int> freq{};
+        while(n > 0)
+        {
+            rem = n%10;
+            if(rem != 0)
+                freq[rem]++;
+            n /= 10;
+        }
+        int ans = 0, prod = 1;
+        for(pair<int, int> p : freq)
+            ans += (p.first*p.second);
+        return ans;
+    }
+};
