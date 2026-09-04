@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int balancedStringSplit(string s) {
+        int balance = 0,c = 0;
+        for(auto a:s)
+        {
+            if(a == 'L') balance++;
+            else balance--;
+            if(!balance) c++;
+        }
+        return c;
+    }
+};
