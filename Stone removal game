@@ -1,0 +1,32 @@
+class Solution {
+public:
+    bool canAliceWin(int n) {
+        
+        if(n < 10){
+            return false;
+        }
+        int i=10;
+        bool alice=false;
+        bool bob=true;
+
+        while(n > 0){
+            if(n >= i ){
+                if(alice){
+                    alice=false;
+                    bob=true;
+                }else{
+                    alice=true;
+                    bob=false;
+                }
+            }else{
+                break;
+            }
+            n=n-i;
+            i--;
+        }
+        if(alice){
+            return true;
+        }
+        return false;
+    }
+};
