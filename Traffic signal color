@@ -1,0 +1,16 @@
+class Solution {
+public:
+    string trafficSignal(int timer) {
+        // Check for Green signal
+        if(timer == 0) return "Green";
+        
+        // Check for Orange signal
+        else if(timer == 30) return "Orange";
+        
+        // Check for Red signal range
+        else if(timer > 30 && timer <= 90) return "Red";
+        
+        // Invalid cases
+        else return "Invalid";
+    }
+};
