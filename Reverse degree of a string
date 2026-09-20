@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int reverseDegree(string s) {
+        int n = s.length();
+        int sum = 0;
+        for(int i=0;i<n;i++){
+            sum += (i+1)*(26- (s[i]-'a'));
+        }
+        //s[i]=a => 26-(s[i]-a) => 26
+        return sum;
+        //TC -> O(N)
+        //SC -> O(1)
+    }
+};
