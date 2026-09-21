@@ -1,0 +1,16 @@
+class Solution {
+    
+public:
+    int commonFactors(int a, int b) {
+        int c=gcd(a,b);
+        int ans=0;
+
+        for(int i=1;i*i<=c;i++){
+            if(c%i==0){
+                ans++;
+                if(i!=c/i)  ans++;     
+            }
+        }
+        return ans;   
+    }
+};
