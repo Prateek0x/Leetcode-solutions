@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int countBalls(int lowLimit, int highLimit) {
+        vector<int> boxes(46, 0);  // Max sum of digits for 99999 is 45
+        for (int i = lowLimit; i <= highLimit; i++) {
+            int value = i;
+            int box = 0;
+            while (value) {
+                box += value % 10;  // Add the last digit
+                value /= 10;        // Remove the last digit
+            }
+            boxes[box]++;           // Increment the box count
+        }
+        return *max_element(boxes.begin(), boxes.end());  // Find the max box count
+    }
+};
