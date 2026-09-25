@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int range(int n) {
+        int mn = 10, mx = -1;
+        while (n > 0) {
+            int digi = n % 10;
+            mx = max(mx, digi);
+            mn = min(mn, digi);
+            n /= 10;
+        }
+        return mx - mn;
+    }
+
+    int maxDigitRange(vector<int>& nums) {
+        int n = nums.size();
+        int ans = INT_MIN;
+
+        for (int i = 0; i < n; ++i) {
+            ans = max(ans, range(nums[i]));
+        }
+
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            if (ans == range(nums[i])) {
+                res += nums[i];
+            }
+        }
+
+        return res;
+    }
+};
