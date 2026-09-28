@@ -1,0 +1,8 @@
+class Solution {
+public:
+    int maximizeSum(vector<int>& nums, int k) {
+        int maxi=*max_element(begin(nums),end(nums));
+
+        return ((maxi+k-1)*(maxi+k)/2)-((maxi-1)*(maxi)/2);
+    }
+};
