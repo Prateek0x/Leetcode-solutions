@@ -1,0 +1,13 @@
+class Solution {
+public:
+  
+    int minimumOperations(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        int count=0;
+        for(int n :nums){
+            if(n!=0)mp[n]++;
+            if(mp[n]==1)count++;
+        }
+        return count;
+    }
+};
