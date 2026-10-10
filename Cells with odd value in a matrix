@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int oddCells(int m, int n, vector<vector<int>>& indices) {
+        vector<vector<int>> temp(m,vector<int>(n,0));
+        for(auto x : indices){
+            int row = x[0] , col = x[1];
+            for(int j = 0; j<n; j++){
+                temp[row][j]++;
+            }
+
+            for(int i = 0; i<m; i++){
+                temp[i][col]++;
+            }
+        }
+
+        int ans = 0;
+        for(auto x : temp)
+        for(auto y : x)
+        if(y%2 == 1)
+        ans++;
+
+        return ans;
+    }
+};
