@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string convertToTitle(int n) {
+        string ans="";
+        while(n>0){
+            n--;
+            char letter='A'+(n%26);
+            ans=letter+ans;
+            n=n/26;
+        }
+        return ans;
+
+        
+    }
+};
