@@ -1,0 +1,10 @@
+class Solution {
+public:
+    bool squareIsWhite(string coordinates) {
+        int n = coordinates[0], m = coordinates[1];
+        if(n % 2 != 0 && m % 2 != 0) return false;
+        if(n % 2 != 0 && m % 2 == 0) return true;
+        if(n % 2 == 0 && m % 2 != 0) return true;
+        return false;
+    }
+};
