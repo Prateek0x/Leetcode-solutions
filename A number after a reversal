@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void removeTrailingZero(string &st2) {
+        for (int i = st2.length() - 1; i >= 0; i--) {
+            if (st2[i] == '0') {
+                st2.pop_back();
+            } else {
+                break;
+            }
+        }
+    }
+
+    bool isSameAfterReversals(int num) {
+        //method-1.............
+        // if(num ==0) return true;
+        // string st1 = to_string(num);
+        // string st2 = st1;
+        // removeTrailingZero(st2);
+        // return st1 == st2;
+
+        //method-2..........
+        return (num==0) || (num %10 !=0);
+    }
+};
