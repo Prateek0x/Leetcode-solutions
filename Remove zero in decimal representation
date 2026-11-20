@@ -1,0 +1,13 @@
+class Solution {
+public:
+    long long removeZeros(long long n) {
+        string s = "";
+        string temp = to_string(n);
+        for (auto val : temp) {
+            if (val != '0')
+                s += val;
+        }
+        n = stoll(s);
+        return n;
+    }
+};
