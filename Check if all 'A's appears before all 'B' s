@@ -1,0 +1,13 @@
+#define ll long long
+class Solution {
+public:
+    long long minCuttingCost(int n, int m, int k) {
+        ll extra = 0, maxLen = max(n, m);
+        if (n < k && m < k)
+            return 0;
+        if (maxLen > k) {
+            extra = maxLen - k;
+        }
+        return 1LL * extra * k;
+    }
+};
