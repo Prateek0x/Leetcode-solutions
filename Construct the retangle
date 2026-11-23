@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> constructRectangle(int area) {
+        double dbl_breadth, dbl_length;
+        int b, l;
+        int L, B;
+        int diff = INT_MAX;
+        for (l = 1; l <= area; l++) {
+            dbl_length= l;
+            dbl_breadth = area / dbl_length;
+            b = area / l;
+            if (dbl_breadth == b) {
+                if (diff > abs(l - b)) {
+                    diff = abs(l - b);
+                    L=l;
+                    B=b;
+                }
+            }
+        }
+        if(B>L)
+         swap(L,B);
+        vector<int>ans = {L,B} ;
+        return ans;
+    }
+};
