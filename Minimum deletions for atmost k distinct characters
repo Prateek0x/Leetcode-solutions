@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minDeletion(string s, int k) {
+
+        unordered_map<char, int> freq;
+
+        for (auto ch : s) {
+            freq[ch]++;
+        }
+
+        vector<int> v;
+        for (auto it : freq) {
+            v.push_back(it.second);
+        }
+
+        sort(v.begin(), v.end(), greater<int>());
+
+        int sum = 0;
+        for (int i = k; i < v.size(); i++) {
+            sum += v[i];
+        }
+        return sum;
+    }
+};
